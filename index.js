@@ -1,5 +1,5 @@
 const maxscoreElement = document.querySelector('#max-score')
-let maxScore = 5
+let maxScore = maxscoreElement.value
 
 maxscoreElement.addEventListener('change', function () {
 	maxScore = parseInt(this.value)
