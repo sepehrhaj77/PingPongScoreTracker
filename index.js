@@ -56,23 +56,7 @@ threePlayerButton.addEventListener('click', () => {
 	maxPlayers = 3
 })
 
-nextPlayerButton.addEventListener('click', () => {
-	var playerColor
-	currentPlayer = (currentPlayer % maxPlayers) + 1
-	if (currentPlayer === 1) {
-		playerColor = '(Blue)'
-		currentPlayerElement.style.color = 'blue'
-	} else if (currentPlayer === 2) {
-		playerColor = '(Green)'
-		currentPlayerElement.style.color = 'green'
-	} else {
-		playerColor = '(Red)'
-		currentPlayerElement.style.color = 'red'
-	}
-	currentPlayerElement.textContent = `P${currentPlayer} ${playerColor}`
-	removeDisabled()
-	currentRolls = 0
-})
+nextPlayerButton.addEventListener('click', advancePlayer)
 
 resetButton.addEventListener('click', reset)
 
@@ -92,6 +76,25 @@ for (b of scoreButtonsArray) {
 		currentRolls++
 		checkRolls()
 	})
+}
+
+//advance to the next player
+function advancePlayer() {
+	var playerColor
+	currentPlayer = (currentPlayer % maxPlayers) + 1
+	if (currentPlayer === 1) {
+		playerColor = '(Blue)'
+		currentPlayerElement.style.color = 'blue'
+	} else if (currentPlayer === 2) {
+		playerColor = '(Green)'
+		currentPlayerElement.style.color = 'green'
+	} else {
+		playerColor = '(Red)'
+		currentPlayerElement.style.color = 'red'
+	}
+	currentPlayerElement.textContent = `P${currentPlayer} ${playerColor}`
+	removeDisabled()
+	currentRolls = 0
 }
 
 //reset scores
@@ -170,6 +173,5 @@ function playVictoryAnimation(player) {
 	victoryAnimationElement.classList.remove('hide')
 	victoryAnimationElement.classList.add('victory')
 	toggleButtonDisable()
-	console.log(nextPlayerButton)
 	nextPlayerButton.setAttribute('disabled', '')
 }
