@@ -9,12 +9,29 @@ html {
 	height: 100%;
 }
 .wrapper {
-	width: 50%;
-	margin: 0 25%;
+	width: 40%;
+	margin: 0 30%;
 }
-.green {
-	color: green;
+.hide {
+	display: none;
 }
-.red {
-	color: red;
+#score-selection {
+	font-size: 2rem;
+}
+#scoring-buttons button:active {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.victory {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 30%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	font-size: 10rem;
+	text-align: center;
+	color: yellow;
+	transition: font-size 2s ease-out;
 }

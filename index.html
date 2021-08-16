@@ -18,54 +18,154 @@
 			<div class="row">
 				<div class="col px-0">
 					<img
-						src="https://images.unsplash.com/photo-1534158914592-062992fbe900?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1375&q=80"
+						src="https://npr.brightspotcdn.com/dims4/default/d630c2c/2147483647/strip/true/crop/640x336+0+38/resize/1200x630!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fsites%2Fkcur%2Ffiles%2F201801%2F2154012317_c720a01cbf_z.jpg"
 						alt="PingPongPaddle"
 						class="img-fluid"
 					/>
 				</div>
 			</div>
 			<div class="row py-1 fw-bold border">
-				<div class="col">Ping Pong Score Keeper</div>
+				<div class="col d-flex justify-content-center">
+					<h1>Score Keeper</h1>
+				</div>
 			</div>
-			<div class="row py-3 border">
-				<div class="row fs-1">
-					<h1><span id="p1-score">0</span> to <span id="p2-score">0</span></h1>
-				</div>
-				<div class="row">
-					<div class="col">Use the buttons below to keep score</div>
-				</div>
-				<div class="row">
-					<div class="col">
-						<span class="fs-5 fw-bold">Playing To</span>
-						<select id="max-score" class="rounded-pill px-1">
-							<option value="11">11</option>
-							<option value="21">21</option>
-						</select>
+			<div id="num-player-select" class="row py-5">
+				<div class="col">
+					<h1 class="d-flex justify-content-center">How many players?</h1>
+					<div class="d-flex justify-content-center">
+						<button
+							id="two-player-game-select"
+							class="btn btn-lg btn-info w-25 mx-3"
+						>
+							2
+						</button>
+						<button
+							id="three-player-game-select"
+							class="btn btn-lg btn-info w-25 mx-3"
+						>
+							3
+						</button>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col px-0 d-grid">
-					<button
-						tabindex="0"
-						id="p1-score-button"
-						class="btn btn-success btn-block"
+			<div id="score-tracker" class="row py-3 border hide">
+				<div class="row">
+					<div class="col py-2" id="score-selection">
+						<span class="fw-bold">Playing To</span>
+						<select id="max-score" class="rounded-pill px-1">
+							<option value="500">500</option>
+							<option value="100">1000</option>
+							<option value="100">1500</option>
+						</select>
+					</div>
+				</div>
+				<div class="row d-flex justify-content-between">
+					<div class="col-8">
+						<h1>
+							Current Player:
+							<span id="current-player" style="color: blue">P1 (Blue)</span>
+						</h1>
+					</div>
+					<div class="col-3">
+						<button id="reset-button" class="btn btn-danger w-100">
+							Reset
+						</button>
+					</div>
+				</div>
+				<div class="row fs-1 mx-auto my-3">
+					<div
+						id="p1-score"
+						class="
+							col
+							text-center
+							border border-2 border-primary
+							mx-1
+							bg-light
+							text-primary
+						"
 					>
-						+1 Player One
-					</button>
-				</div>
-				<div class="col px-0 d-grid">
-					<button id="p2-score-button" class="btn btn-primary btn-block">
-						+1 Player Two
-					</button>
-				</div>
-				<div class="col px-0 d-grid">
-					<button id="reset-button" class="btn btn-danger btn-block">
-						Reset
-					</button>
+						0
+					</div>
+					<div
+						id="p2-score"
+						class="
+							col
+							text-center
+							border border-2 border-success
+							mx-1
+							bg-light
+							text-success
+						"
+					>
+						0
+					</div>
+					<div
+						id="p3-score"
+						class="
+							col
+							text-center
+							border border-2 border-danger
+							mx-1
+							bg-light
+							text-danger
+						"
+					>
+						0
+					</div>
 				</div>
 			</div>
+			<div id="scoring-buttons" class="hide">
+				<div class="row g-3 my-2 fs-3">
+					<div class="col">
+						<button id="score-10" class="score-button w-100">+10</button>
+					</div>
+					<div class="col">
+						<button id="score-15" class="score-button w-100">+15</button>
+					</div>
+					<div class="col">
+						<button id="score-20" class="score-button w-100">+20</button>
+					</div>
+					<div class="col">
+						<button id="score-25" class="score-button w-100">+25</button>
+					</div>
+				</div>
+				<div class="row g-3 my-2 fs-3">
+					<div class="col">
+						<button id="score-10" class="score-button w-100">+30</button>
+					</div>
+					<div class="col">
+						<button id="score-15" class="score-button w-100">+40</button>
+					</div>
+					<div class="col">
+						<button id="score-20" class="score-button w-100">+50</button>
+					</div>
+					<div class="col">
+						<button id="score-25" class="score-button w-100">+60</button>
+					</div>
+				</div>
+				<div class="row g-3 my-2 fs-3">
+					<div class="col">
+						<button id="score-10" class="score-button w-100">+70</button>
+					</div>
+					<div class="col">
+						<button id="score-15" class="score-button w-100">+80</button>
+					</div>
+					<div class="col">
+						<button id="score-20" class="score-button w-100">+90</button>
+					</div>
+					<div class="col">
+						<button id="score-25" class="score-button w-100">+100</button>
+					</div>
+				</div>
+			</div>
+			<div id="next-player-button-div" class="row mt-3 hide">
+				<button id="next-player-button" class="btn btn-secondary fs-2">
+					Next Player
+				</button>
+			</div>
 		</div>
+
+		<div id="victory-animation"></div>
 
 		<script src="index.js"></script>
 	</body>
